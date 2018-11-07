@@ -2,6 +2,8 @@
 
 namespace App;
 
+use InvalidArgumentException;
+
 class StringCalculator
 {
     /**
@@ -14,6 +16,14 @@ class StringCalculator
     {
         $numbers = explode(',', $numbers);
 
-        return array_sum($numbers);
+        return array_reduce($numbers, function ($tot, $num) {
+            if (empty($num)) {
+                $num = 0;
+            } elseif (ctype_alpha($num)) {
+                throw new InvalidArgumentException;
+            }
+
+            return $tot += $num;
+        });
     }
 }

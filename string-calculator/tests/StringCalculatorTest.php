@@ -41,5 +41,12 @@ class StringCalculatorTest extends TestCase
 
         $this->assertEquals(-4, $result);
     }
+
+    function testItSquawksAtNonNumbers()
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        $this->calculator->add('2,a');
+    }
 }
 
