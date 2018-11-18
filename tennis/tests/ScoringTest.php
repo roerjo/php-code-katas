@@ -108,4 +108,24 @@ class ScoringTest extends TestCase
 
         $this->assertEquals($this->player2->getName().' is the winner!', $score);
     }
+
+    function testItScoresDeuce()
+    {
+        $this->player1->setPoints(4);
+        $this->player2->setPoints(4);
+
+        $score = $this->game->getScore($this->player1, $this->player2);
+
+        $this->assertEquals('Deuce', $score);
+    }
+
+    function testItScoresAdvantage()
+    {
+        $this->player1->setPoints(5);
+        $this->player2->setPoints(4);
+
+        $score = $this->game->getScore($this->player1, $this->player2);
+
+        $this->assertEquals($this->player1->getName().' has advantage', $score);
+    }
 }
