@@ -1,5 +1,13 @@
 {
+    "name": "roerjo/prime-factors",
+    "description": "PHP code kata for prime factors",
     "require": {
         "phpunit/phpunit": "^8.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tests\\": "tests/",
+            "App\\": "src/"
+        }
     }
 }
