@@ -2,8 +2,6 @@
 
 namespace App;
 
-use DivisionByZeroError;
-
 class PrimeFactors
 {
     public function calculate(int $number)
